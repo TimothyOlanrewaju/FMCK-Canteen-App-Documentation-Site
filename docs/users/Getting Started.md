@@ -33,7 +33,7 @@ The application uses the `Department` you choose as your location on the applica
 
 In situations in which a wrong department was chosen during registration or there was a change of your department, you can change your department in the application by following these steps:
 
-- Go to **the User Profile Menu**.
+- Go to your **Profile Menu**.
 - Choose the **Change Department** option.
 - Select your department from the drop-down options.
 - Click on **Update**.
