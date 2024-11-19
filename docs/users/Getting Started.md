@@ -65,7 +65,7 @@ To select call dates for a user:
 - From the resulting calendar pop-up, select the dates.
 - Click **Confirm Selection**.
 
-:::info NOTE THAT
+:::warning NOTE THAT
 Call dates cannot be backdated. Only current and future dates can be selected on the calendar.
 :::
 
