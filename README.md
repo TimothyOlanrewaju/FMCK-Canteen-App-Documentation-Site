@@ -1,4 +1,4 @@
-This is the official documentation site for FMCK Canteen Application. 
+This is the repository of the official documentation site for FMCK Canteen Application. 
 
 Built with Docusaurus.
 
