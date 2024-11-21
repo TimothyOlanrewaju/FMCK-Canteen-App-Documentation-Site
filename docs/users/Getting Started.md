@@ -121,9 +121,9 @@ After a successful meal request has been made, the request is sent to the **Cant
 
 > The Canteen Manager may decline a request if the meal items are unavailable at a particular time.
 
-#### Request on Weekends
+#### Request on Weekends and Public Holidays
 
-Clinicians on duty during the weekends are allowed to make two meal requests.
+Clinicians on duty during the weekends and public holidays are allowed to make two meal requests.
 
 ### Meals Management (Canteen Manager)
 
