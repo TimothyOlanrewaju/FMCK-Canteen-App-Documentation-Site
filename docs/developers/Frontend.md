@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
@@ -10,12 +10,12 @@ toc_max_heading_level: 4
 
 The frontend of this application is built as a Multi-Page Application (MPA), providing a traditional, server-rendered experience with multiple distinct pages and navigation flows. This approach ensures that each page is independently loaded and rendered.
 
-### Technology Stack
+### Frontend Stack Used
 
 The frontend technologies used in this application are:
 
 - HTML5
-- CSS
+- CSS3
 - Bootstrap
 - JavaScript
 - JQuery
@@ -31,25 +31,9 @@ different screen sizes can access and enjoy the experience while on the applicat
 
 ### Frontend Structure
 
-#### Folder Structure
-
-The entire application folder is structured in this format:
-
-```
-└── 📁accounts
-└── 📁canteen
-└── 📁main
-└── 📁static
-└── 📁templates
-```
-
-:::info
-By default, Django stores Html files in the templates directory.
-:::
-
 #### Templates
 
-The _templates_ folder is sub-divided into folders containing Html files.
+By default, Django stores Html files in the templates directory. The _templates_ folder is sub-divided into folders containing Html files.
 
 ```
 └── 📁templates
@@ -90,14 +74,7 @@ The sub-folders in the `templates` directory are:
 
 #### Static Folder
 
-The Static folder consists of static files, which are directly served to the client by the server and do not change dynamically. They are important for rendering and styling the user interface of this application. Here are the static files used in this project:
-
-```
-└── 📁static
-    └── 📁css
-    └── 📁img
-    └── 📁js
-```
+Consists of static files. Click [here](../developers/Overview.md#static) to view folder structure.
 
 ## Design Pattern
 
@@ -140,7 +117,7 @@ Data within the application's frontend is primarily driven by user events like c
 
 For example: On initial load, meal data is loaded from the backend and displayed on the frontend. The meal items would have to be selected individually to be added to a Menu.
 
-![Adding meals to the Menu](../../static/img/Menu_Snapshot.PNG)
+![Adding meals to the Menu](../../static/img/Menu.png)
 
 On selection of meal items, the following DOM manipulations occurs on a click event:
 
@@ -162,59 +139,20 @@ JavaScript processes events and updates relevant parts of the DOM throughout the
 
 ## Component Breakdown
 
+Components break down complex user interfaces into manageable, reusable pieces, making development more efficient and the code easier to maintain.
+
+**We use Components for**:
+
+- **Reusability**: After initial creation, we can use them anywhere.
+- **Modularity**: Each component handles its own functionality, keeping the code organized.
+- **Scalability**: Easier to update and expand by working on independent components.
+- **Consistency**: Uniform design and behavior across the application.
+
 ### Base Template
 
-The application uses a particular component that renders every single page - the navbar and footer. It basically serves as a skeleton or layout for all other pages. The file - **base.html** also includes a Bootstrap _**toast**_ component with a alert message tag attached.
+This serves as a skeleton or layout for all other pages. Every page in the application contains a **navbar**, **footer**, and a **toast** component, which is displayed conditionally with different messages. To ensure consistency across all pages, these components are included in the _**base template**_.
 
-```html title="base.html"
-{% if messages %}
-<div
-  class="toast-container position-fixed top-0 start-50 translate-middle-x p-3 custom-toast-container "
->
-  {% for message in messages %}
-  <div
-    id="liveToast"
-    class="toast custom-toast alert-{{ message.tags }}"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-    <div class="toast-header alert-{{ message.tags }} bg-dark text-primary">
-      <strong class="me-auto"> ✉ Notification</strong>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="toast"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="toast-body text-white fs-4 fw-medium">{{ message }}</div>
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
-```
-
-The toast is rendered conditionally if a request that has a message is successfully made.
-
-For instance, let's look at how the Logout link interacts on logging a User out:
-
-```python title="views.py"
-def logoutPage(request):
-    logout(request)
-    messages.success(request, 'Logged out successfully.')
-    return redirect('/')
-```
-
-In the **Logout** function above,
-
-- The inbuilt Django _logout_ function is called, which clears the session data of the logged-in user.
-- A success message to inform the user that they have logged out.
-  ![LogOutToast](../../static/img/Log_out.PNG)
-  > The message is displayed on the next page the user is redirected to, using Django's Messaging framework.
-- The user is redirected to the home page.
-
-### Block Contents
+### Block Content
 
 As part of Django's template inheritance system, the application page layout uses the `{% block content %}` to
 allow for creation of reusable templates. A block is a section or placeholder in a base template (like **base.html**)that can be overriden in child templates.
@@ -222,45 +160,24 @@ Every html page content in the application (aside the **navbar**, **footer** and
 
 For example:
 
-```python title="Contact.html"
+```js title="Contact.html"
 {% extends 'base/base.html' %}
+//highlight-next-line
 {% block content %}
-<div class="container-fluid contact">
-  <div class="container-fluid py-3">
-    <div
-      class="row d-flex justify-content-center align-items-center text-primary h-100"
-    >
-      <div class="text-center pb-2 wow" data-wow-delay="0.1s">
-        <h3
-          class="section-title ff-secondary text-center text-primary font-monospace"
-        >
-          Contact Us
-        </h3>
-      </div>
-      <p>
-        Thank you for choosing Canteen App! If you have any questions, need
-        assistance, or would like to provide feedback, our Support team is
-        always present to help.
-      </p>
-      <p>
-        We provide on-site support for immediate assistance, so feel free to
-        reach out.
-      </p>
-      <p><b>Location: </b>CITTU building <i>(beside new Admin block).</i></p>
-      <p><b>Working Hours: </b>24 hours.</p>
-    </div>
+  <div class="container-fluid contact">
+    // Rest of Code
   </div>
-</div>
+//highlight-next-line
 {% endblock %}
 ```
 
 Here is how the **Base.html** file looks like:
 
-```html title="base.html"
+```js title="base.html"
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    //head content
+    // head content
   </head>
   <body>
     {% include 'include/navbar.html' %}
@@ -293,7 +210,10 @@ Here is how the **Base.html** file looks like:
         </div>
         {% endfor %}
       </div>
-      {% endif %} {% block content %} {% endblock content %}
+      {% endif %}
+      {% block content %}
+
+      {% endblock content %}
     </main>
     {% include 'include/footer.html' %}
   </body>
@@ -302,20 +222,101 @@ Here is how the **Base.html** file looks like:
 
 ## Using JQuery
 
-JQuery was used in the Calendar functionality specific to **Admins** that select call dates for clinicians registered
-under the same department. JQuery enabled complex manipulations on the Calendar that simplified the process of date
-selections.
+JQuery was used in the calendar functionality, specifically for admins who select call dates for clinicians registered under their department.
 
-The key features of the JQuery enabled calendar are:
+![Calendar](../../static/img/calendar.PNG "The Call Roster Calendar")
 
-        Pages: The application is divided into several pages, each representing a distinct view of the system.
-         Examples include the homepage, user profile page, settings page, and more. These pages are accessible through navigation links that trigger full page reloads, providing a traditional browsing experience.
-        Routing: Routing is managed by the backend, where the server responds with a different HTML page based on the URL requested. This routing structure ensures that each page has its own URL, making the app more accessible and shareable.
-        State Management: While MPAs generally have less need for sophisticated client-side state management than SPAs, we still leverage client-side JavaScript for managing the state of interactive elements (such as forms, modals, and notifications) that are local to each page.
+JQuery enabled complex manipulations on the Calendar that simplified the process of date selections.
 
-Performance Considerations
+The functionalities of the Calendar are:
+
+- Fetching and displaying the calendar.
+- Disabling past dates, making them unavailable for selection.
+- On clicking any of the dates on the calendar, the selection is indicated by a purple circle (🟣) around it.
+
+![CalendarSelection](../../static/img/calendar-selection.PNG "Call Dates Selection")
+
+- On clicking an already selected date on the calendar, it deselects the date(s) and removes the purple indicator.
+
+:::info
+Functionally, the selection action adds call dates to the calendar while, the de-selection action removes the call dates from the Roster array.
+:::
+
+- The **Clear Selection(s)** button de-selects/removes every selected dates.
+- The **Confirm Selection(s)** button saves the selected dates to the database.
+
+## Responsive Design
+
+By default, Bootstrap comes with capabilities of adjusting content to fit different screen sizes. However, some extra techniques were used to make contents fully laid out properly, they are:
+
+**Flex System**
+
+The Flex system in Bootstrap leverages the CSS Flexible Box Layout Module (Flexbox) to create flexible and responsive layouts with minimal effort. It offers key feature such as:
+
+- **Alignment and Justification**: To align items vertically or horizontally using classes like `.align-items-center` or `.justify-content-between`.
+- **Direction Control**: Easily change the direction of elements using `.flex-row` or `.flex-column`.
+- **Spacing**: To adjust spacing between elements with utilities like `gap-*`.
+- **Flexibility**: Used .flex-grow-_ and .flex-shrink-_ to define how elements grow or shrink in a container.
+
+**Use Cases**:
+
+- Building complex alignment structures for elements like buttons or icons.
+- Achieving consistent spacing between elements, regardless of content size.
+
+**Grid System**
+
+The Grid system is the foundation of responsive layouts in Bootstrap. It provides a 12-column layout structure, allowing you to divide your page into sections that resize proportionally based on the viewport size. It has key features such as:
+
+- **12-Column Layout**: Divide the layout into 12 parts, making it easy to control widths using classes like `.col-6` (half-width).
+- **Breakpoints**: Define column behavior at different screen sizes with classes like `.col-sm-*`, `.col-md-*`, .`col-lg-*`.
+
+**Use Cases**:
+
+- Creating multi-column layouts for content sections.
+- Building responsive forms.
+- Aligning and resizing elements seamlessly for various devices (mobile-first approach).
+
+Here is a code example from the application that combines both the flex and grid system:
+
+```js title="meal_request.html"
+<div id="tab-1" class="tab-pane fade show p-0 active">
+  //highlight-next-line
+  <div class="food-div row justify-content-center">
+    {% for meal in food_meal %}
+    //highlight-next-line
+      <div class="col-8 d-flex justify-content-center align-items-center mb-3">
+      // Rest of the code
+      </div>
+    {% endfor %}
+  </div>
+</div>
+```
+
+**Media Queries**
+
+Media queries are a feature of CSS3 that enable developers to apply styles conditionally based on specific characteristics of the user's device or viewport, such as screen size, resolution, orientation, and more. They are a fundamental tool in Responsive Web Design, allowing the application to adapt it's layouts and styles to different devices like desktops, tablets, and smartphones.
+
+These media queries can be found in the `style.css`:
+
+```css title="static/css/style.css"
+@media screen and (max-width: 460px) {
+  .nav-div.container-xxl {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+}
+```
+
+The css styling takes effect when the screen size is less than 460px. Basically, this styling is targeting small screen devices (smartphones to be precise).
+
+## Routing and Navigation
+
+The application is divided into several pages, each representing a distinct view of the canteen system.These pages are accessible through navigation links that trigger full page reloads, providing a traditional browsing experience.
+Routing is managed by the backend, where the server responds with a different HTML page based on the URL requested. This routing structure ensures that each page has its own URL, making the app more accessible and shareable.
+
+## Performance Considerations
 
 MPAs traditionally have longer load times due to full page reloads with each navigation. However, we mitigate this by implementing strategies such as:
 
-    Lazy Loading: Non-critical JavaScript and assets are loaded only when needed to ensure that the initial load time is minimized.
-    Optimized Asset Delivery: Assets such as images, scripts, and styles are optimized and served via a Content Delivery Network (CDN) to reduce load times for users across different geographical regions.
+- **Lazy Loading**: Non-critical JavaScript and assets are loaded only when needed to ensure that the initial load time is minimized.
+- **Optimized Asset Delivery**: Styling resources such as Bootstrap, Google fonts, Font Awesome were served via a Content Delivery Network (CDN) to reduce load times for users. The application uses the Hybrid approach to Bootstrap CDNs which is a combination of the remote link and locally hosting the CDN resources (Bootstrap).
