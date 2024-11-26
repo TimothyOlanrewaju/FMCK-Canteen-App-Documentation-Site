@@ -26,6 +26,35 @@ This application was built with the following technologies, frameworks, librarie
 - Django
 - SQLite
 
+## Prerequisites
+
+Before you proceed with installing and running the Django-based application, ensure that your system meets the following requirements.
+
+**System Requirements**
+
+To run this application, your system should have the following specifications:
+
+- **Operating System**:
+
+  - Windows 10 or later
+  - macOS 11.0 or later
+  - Linux (Ubuntu 20.04 LTS or equivalent)
+
+- **Hardware**:
+
+  - Processor: Intel Core i3 or equivalent
+  - RAM: 4GB minimum (8GB recommended)
+  - Disk Space: At least 2GB of free storage
+
+- **Network**:
+  - Active internet connection (for initial setup and dependencies)
+
+**Software Requirements**
+
+Visit [Installation](../developers/Installation.md) page for further instructions on how to set up the application locally on your machine.
+
+By ensuring the prerequisites are met, you can avoid potential setup issues and proceed smoothly with the installation and usage of the application.
+
 ## System Architecture
 
 The FMCK Canteen app was built using a Web and Application-Specific architecture, focusing on design patterns and organizational structures during development.
