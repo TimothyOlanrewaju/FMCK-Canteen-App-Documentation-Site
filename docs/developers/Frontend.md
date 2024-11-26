@@ -4,13 +4,9 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-## Introduction
-
-### Overview
-
 The frontend of this application is built as a Multi-Page Application (MPA), providing a traditional, server-rendered experience with multiple distinct pages and navigation flows. This approach ensures that each page is independently loaded and rendered.
 
-### Frontend Stack Used
+## Frontend Stack
 
 The frontend technologies used in this application are:
 
@@ -20,7 +16,7 @@ The frontend technologies used in this application are:
 - JavaScript
 - JQuery
 
-### User Interface and Experience (UI/UX)
+## User Interface and Experience (UI/UX)
 
 While MPAs often result in more page refreshes, we focus on providing a smooth, intuitive navigation experience with clear calls to action and content organization.
 Each page is designed with accessibility and user-centric design principles to ensure that all users, regardless of device or ability, can interact with the application effectively.
