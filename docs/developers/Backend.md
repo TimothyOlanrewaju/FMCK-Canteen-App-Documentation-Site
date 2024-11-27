@@ -38,6 +38,47 @@ The model is defined and implemented through the following processes within the 
 5. **Template Rendering**: The `View` passes data to a `Template`, which renders the HTML content with dynamic data.
 6. **HTTP Response**: The rendered HTML is sent back to the user's browser as an HTTP response, displaying the requested page or result.
 
+These processes are linked as shown in this diagram :
+
+![MVT](../../static/img/MVT.PNG "MVT Workflow diagram")
+
+### Sample MVT Workflow Example
+
+1. When you click on the **About** link on the Navigation Menu, the server sends an HTTP request to the server.
+
+```html title="navbar.html"
+<a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+```
+
+2. Django's URL dispatcher (defined in urls.py) matches the incoming request to a specific URL pattern.
+
+- When the URL pattern matches a request, the corresponding view function is triggered. If not, Django returns a 404 Not Found response.
+
+```python title="main/urls.py"
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('about', views.about, name="about"),
+]
+```
+
+3. The about view function processes the logic by:
+
+- Interacting with the model to fetch or manipulate data.
+- Preparing the data for the template.
+
+```python title="main.views.py"
+def about(request):
+  return render(request,'main/about.html')
+```
+
+In this example, there is no dynamic data or context variable passed to the template so it returns a static template of `about.html`.
+
+:::info
+This is a simple example that doesn't involve fetching dynamic data from the Model. We'll get to see more complex instances of the View functions interacting with the Models and Templates in this section.
+:::
+
 ## Database Schema and Management
 
 The database is managed using Django's Object Relational Mapping (ORM), with SQLite as the default database engine.
@@ -89,3 +130,5 @@ The database consists of six (6) entities namely: User, Meal, UserGroup, Categor
 ### Entity Relationship Diagram
 
 This is the diagrammatic representation of the key entities and their relationships.
+
+![ERD](../../static/img/ERD1.png "Entity Relationship Diagram")

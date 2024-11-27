@@ -13,9 +13,9 @@ If you don't have Python installed, download the latest version [here](https://w
 
 _Required Versions_: Python 3.8 or later.
 
-Note sure if you have Python installed on your machine, run `python --version` in your terminal or command prompt.
+Run `python --version` in your terminal or command prompt to check if Python is installed on your machine.
 
-## 2. Clone the Repository
+## 2. Clone the Github Repository
 
 Vist the projects' [repository](https://github.com/TimothyOlanrewaju/TastyBitesApp) on Github. Click on the **Code** button and then **Download ZIP**.
 

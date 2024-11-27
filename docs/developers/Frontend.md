@@ -156,7 +156,7 @@ Every html page content in the application (aside the **navbar**, **footer** and
 
 For example:
 
-```js title="Contact.html"
+```js title="templates/main/contact.html"
 {% extends 'base/base.html' %}
 //highlight-next-line
 {% block content %}
@@ -169,7 +169,7 @@ For example:
 
 Here is how the **Base.html** file looks like:
 
-```js title="base.html"
+```html title="templates/base/base.html"
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -206,10 +206,7 @@ Here is how the **Base.html** file looks like:
         </div>
         {% endfor %}
       </div>
-      {% endif %}
-      {% block content %}
-
-      {% endblock content %}
+      {% endif %} {% block content %} {% endblock content %}
     </main>
     {% include 'include/footer.html' %}
   </body>
@@ -274,7 +271,7 @@ The Grid system is the foundation of responsive layouts in Bootstrap. It provide
 
 Here is a code example from the application that combines both the flex and grid system:
 
-```js title="meal_request.html"
+```js title="templates/main/meal_request.html"
 <div id="tab-1" class="tab-pane fade show p-0 active">
   //highlight-next-line
   <div class="food-div row justify-content-center">
