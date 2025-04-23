@@ -11,6 +11,8 @@ personal and job-related information - like your staff credentials and departmen
 
 ### Roles
 
+---
+
 On registration, there is an option of `Role` - which is a required field to choose. There are two role options available - `Staff` and `Intern`. A `Staff` in this context, is a clinician who is permanently employed by the institution while, an `Intern` is a temporal staff whose appointment spans over a short period of time.
 
 #### Why Choose a Role
@@ -21,11 +23,13 @@ The choice of role is important as the application automatically deletes the dat
 
 ### Departments and Units
 
+---
+
 The center consists of many departments, units and even sub-units. These departments include both clinicals and non-clinicals. With the application being clinical-inclined, non-clinical departments are exempted from using this application. The `Department` dropdown options on the registration page includes only clinical departments, same as the `Unit` option.
 
 > It is important to note that not all departments have units or sub-units. So, while filling the registration form, the `Department` option is the most important one to choose.
 
-#### Why is Department So Important
+#### ❓ Why is Department So Important
 
 The application uses the `Department` you choose as your location on the application. Meaning, if you registered as a `Staff` working in **General Out Patient Department (Gopd)**, the application places your location as **Gopd**. You might have units and sub-units under your department **Gopd**, but the key metric used is your department.
 
@@ -39,6 +43,8 @@ In situations in which a wrong department was chosen during registration or ther
 - Click on **Update**.
 
 ### Call Roster
+
+---
 
 **Admin Officers** stationed in various clinical departments are responsible for adding individual clinicians' dates to the Call Roster. Only users who have call dates inputted by the Admin Officers in the application will be able to request meals.
 
@@ -86,6 +92,8 @@ To remove call date(s):
 
 ### Meal Request
 
+---
+
 After call dates have been captured in the Call Roster, every user would land on the **Meal Request** page whenever they log into the application. The Meal Request page is where users can select their preferred meal items, and place an order.
 
 :::note TAKE NOTE
@@ -126,6 +134,8 @@ After a successful meal request has been made, the request is sent to the **Cant
 Clinicians on duty during the weekends and public holidays are allowed to make two meal requests.
 
 ### Meals Management (Canteen Manager)
+
+---
 
 The **Canteen Manager** is solely in charge of managing meal request approvals, availability of meals, creating new meals, editing existing meal(s) and deleting meal(s).
 
